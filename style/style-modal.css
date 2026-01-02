@@ -1,0 +1,178 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ad;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-container {
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+    transform: translateY(0);
+}
+
+.modal-header {
+    background-color: #005eff;
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.modal-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(90vh - 80px);
+    background-color: #ffffff;
+}
+
+.modal-game-info {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.modal-image {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.modal-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.modal-details h3 {
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.modal-details p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+}
+
+/* TROQUE ESTAS VARIÁVEIS POR CORES FIXAS */
+.modal-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    background-color: #f7fafc; /* TROCADO: era var(--card-bg) */
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.stat-label {
+    font-weight: bold;
+    color: #489eff;
+}
+
+.stat-value {
+    background-color: #747474;
+    color: white;
+    padding: 4px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.modal-full-analysis {
+    background-color: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.modal-full-analysis h3 {
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.modal-full-analysis p {
+    line-height: 1.8;
+    text-align: justify;
+    color: #4a5568;
+}
+
+/* Responsividade do Modal */
+@media (max-width: 768px) {
+    .modal-game-info {
+        flex-direction: column;
+    }
+    
+    .modal-image {
+        width: 100%;
+        height: 250px;
+    }
+    
+    .modal-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-container {
+        width: 95%;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1rem;
+    }
+}
